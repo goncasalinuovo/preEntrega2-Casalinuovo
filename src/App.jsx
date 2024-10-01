@@ -1,22 +1,29 @@
 
 import './App.css'
-import CartWidget from './components/CartWidget'
-import ItemListContainer from './components/ItemListContainer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+
 import NavBar from './components/NavBar'
-import TituloComponente from './components/TituloComponente'
+import ItemListContainer from './components/ItemListContainer'
+import ItemDetailContainer from './components/itemDetailContainer'
+
+
 
 function App() {
 
   return (
     <>
-    <div className='navBar'>
-      <TituloComponente titulo='Vivero'/>
-      <NavBar texto='Home'/>
-      <NavBar texto='Productos'/>
-      <NavBar texto='Contacto'/>
-      <CartWidget/>
-    </div>
-    <ItemListContainer greeting='Bienvenido a nuestro Vivero online'/>
+    <BrowserRouter>
+        <div className='navBar'>
+            <NavBar/>   
+        </div>
+        <Routes>
+          <Route exact path='/' element={<ItemListContainer/>} />
+          <Route exact path='/Categoria/:categoriaId' element={<ItemListContainer/>} />
+          <Route exact path='/Item/:Id' element={<ItemDetailContainer/>} />
+          {/* <Route exact path='/Carrito' element={<Carrito/>} /> */}
+        </Routes>
+    </BrowserRouter>
     </>
   )
 }

@@ -1,0 +1,49 @@
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+
+.navBar .navButtons {
+    display: flex;
+    justify-content: center; 
+    flex-grow: 1;
+    padding-right: 130px;
+}
+
+
+.imgLogo {
+    width: 80px;
+}
+
+.navBar button {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px; 
+    margin: 0 10px;
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+.navBar button:hover {
+    background-color: #555;
+}
+
+.navBar button a {
+    text-decoration: none; 
+    color: white;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.cart-widget {
+    color: white;
+}
