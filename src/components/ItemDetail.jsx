@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 
 
-export const ItemDetail = ( {producto} ) => {
+const ItemDetail = ( {producto} ) => {
 
 
     const [num, setNum] = useState(1)
@@ -56,3 +56,5 @@ export const ItemDetail = ( {producto} ) => {
         </>
     )
 }
+
+export default ItemDetail;
