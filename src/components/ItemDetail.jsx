@@ -44,7 +44,7 @@ export const ItemDetail = ( {producto} ) => {
             <img src={producto.imagen} alt={producto.nombre} className="card-img"/>
             <p>{producto.descripcion}</p>
             <p>${producto.precio}</p>
-            <p>Stock: {producto.stock}</p>
+            <p>Disponibles: {producto.stock}</p>
             <Counter 
             num={num}
             handleSumar={handleSumar}

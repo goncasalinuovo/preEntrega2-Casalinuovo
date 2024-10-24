@@ -1,8 +1,16 @@
-# React + Vite
+# Viveros El Botánico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Librerias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: La libreria principal para construir la interfaz de usuario.
+- **Firebase Firestore**: Para la gestión de datos en tiempo real y almacenamiento de productos.
+- **SweetAlert**: Para mostrar alertas y notificaciones de una manera atractiva y amigable.
+
+## Funcionalidades
+
+- Navegación entre productos.
+- Visualización de detalles de cada producto.
+- Integración con Firestore para obtener y almacenar información de los productos.
+- Alertas visuales con SweetAlert para acciones como confirmaciones de compra.
+
