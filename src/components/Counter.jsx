@@ -1,27 +1,17 @@
 import './Counter.css'
-import {useState} from 'react'
 
-const Counter = () => {
+const Counter = ( {num, handleRestar, handleSumar, handleAgregar} ) => {
 
-    const [num, setNum] = useState(1)
-
-    const sumar = () => {
-            setNum(num + 1)
-    }
-    const restar = () => {
-        if (num >= 2) {
-            setNum(num - 1)
-        }else{
-            setNum(num)
-        }
-    }
 
     return(
         <>
         <div className='counterStyle'>
-        <button onClick={restar}>-</button>
+        <button onClick={handleRestar}>-</button>
         <h2>{num}</h2>
-        <button onClick={sumar}>+</button>
+        <button onClick={handleSumar}>+</button>
+        <div>
+        <button onClick={handleAgregar}>Agregar al Carrito</button>
+        </div>
         </div>
         </>
     )

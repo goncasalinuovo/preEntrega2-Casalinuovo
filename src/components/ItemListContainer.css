@@ -44,16 +44,19 @@
 
 .itemButton {
     background-color: #c4e8c5; 
-    color: white;
     border: none;
     border-radius: 5px;
     padding: 10px 15px; 
     cursor: pointer; 
     text-align: center; 
-    text-decoration: none;
     transition: background-color 0.3s; 
 }
 
 .itemButton:hover {
     background-color: #97d39a;
+}
+
+.itemButton a {
+    color: white;
+    text-decoration: none;
 }

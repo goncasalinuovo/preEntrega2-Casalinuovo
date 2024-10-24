@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { pintarProducto } from "../asyncMock"
-import Counter from "./Counter"
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from "../firebase/config"
+import { ItemDetail } from "./itemDetail"
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
@@ -10,22 +11,20 @@ const ItemDetailContainer = () => {
     const {Id} = useParams()
 
     useEffect(() => {
-        const prod = pintarProducto(Number(Id));
-        setProducto(prod);
+        const docRef = doc(db, 'productos', Id);
+        getDoc(docRef)
+            .then((resp) => {
+                setProducto(
+                    {...resp.data(), id: resp.id}
+                )
+
+            })
     }, [Id]);
 
     return(
         <>
-        <div className="card-container">
-        <div className="card-detail">
-            <h2>Detalle del Producto</h2>
-            <h3>{producto.nombre} - {producto.categoria}</h3>
-            <img src={producto.imagen} alt={producto.nombre} className="card-img"/>
-            <p>{producto.descripcion}</p>
-            <p>${producto.precio}</p>
-            <Counter />
-        </div>
-
+        <div>
+            {producto && <ItemDetail producto={producto} />}
         </div>
         </>
     )

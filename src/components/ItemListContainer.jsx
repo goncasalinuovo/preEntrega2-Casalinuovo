@@ -1,7 +1,8 @@
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { pintarProductos, pintarCategoria} from '../asyncMock'
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import { db } from '../firebase/config'
 import { Link } from 'react-router-dom'
 
 
@@ -9,21 +10,26 @@ export default function ItemListContainer () {
 
     const [productos, setProductos] = useState([])
 
-    const {categoriaId} = useParams();
+    const categoria = useParams().categoria;
 
     useEffect(() => {
-        const fetchData = async () => {
-            if (categoriaId) {
-                const filterProd = await pintarCategoria(categoriaId);
-                setProductos(filterProd);
-            } else {
-                const data = await pintarProductos;
-                setProductos(data);
-            }
-        };
 
-        fetchData();
-    }, [categoriaId]);
+        const refProductos = collection(db, 'productos');
+
+        const quer = categoria ? query(refProductos, where('categoria', '==', categoria)) : refProductos;
+
+
+        getDocs(quer)
+            .then((resp) => {
+                setProductos(
+                    resp.docs.map(doc => {
+                        return{...doc.data(), id: doc.id}
+                    })
+                )
+
+            })
+
+    }, [categoria]);
 
     return (
         <div className='container'>
